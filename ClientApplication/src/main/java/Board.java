@@ -1,5 +1,3 @@
-package game;
-
 import exceptions.InvalidPositionException;
 import lombok.Getter;
 import lombok.ToString;
@@ -51,6 +49,7 @@ public class Board {
     }
 
     public void print() {
+        System.out.println("------------------------------");
         System.out.print("  ");
         for (int i = 0; i < SIZE; ++i) {
             System.out.print(i);
@@ -67,5 +66,6 @@ public class Board {
             }
             System.out.println();
         }
+        System.out.println("------------------------------");
     }
 }

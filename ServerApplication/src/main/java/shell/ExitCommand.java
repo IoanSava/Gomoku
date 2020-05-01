@@ -1,7 +1,7 @@
 package shell;
 
 /**
- * This command can be used to exit
+ * This command can be used to exit.
  * Format: 'exit'
  *
  * @author Ioan Sava

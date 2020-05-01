@@ -1,7 +1,5 @@
 package shell;
 
-import lombok.ToString;
-
 /**
  * This command can be used to see the
  * available commands

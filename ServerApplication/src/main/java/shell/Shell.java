@@ -30,7 +30,7 @@ public class Shell {
             if (command.getArguments() != null) {
                 stringBuilder.append(" ").append(command.getArguments());
             }
-            stringBuilder.append(" ");
+            stringBuilder.append("/");
         }
 
         return stringBuilder.toString();

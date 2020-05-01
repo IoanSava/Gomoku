@@ -1,12 +1,15 @@
-import shell.ExitCommand;
-import shell.Shell;
-import shell.ShowCmdsCommand;
+import shell.*;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
+ * An instance of this class will create a
+ * ServerSocket running at a specified port.
+ * The server will receive requests
+ * (commands) from clients and it will execute them.
+ *
  * @author Ioan Sava
  */
 public class GameServer {
@@ -16,8 +19,7 @@ public class GameServer {
     public GameServer() {
         Shell shell = getShell();
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-            boolean running = true;
-            while (running) {
+            while (true) {
                 System.out.println("Waiting for a client ...");
                 Socket socket = serverSocket.accept();
                 // Execute the client's request in a new thread
@@ -34,7 +36,12 @@ public class GameServer {
     private static Shell getShell() {
         Shell shell = new Shell();
 
+        shell.addCommand(new SetNameCommand("set-name", "name"));
+        shell.addCommand(new CreateGameCommand("create-game"));
+        shell.addCommand(new JoinGameCommand("join-game", "id"));
+        shell.addCommand(new ShowGamesCommand("show-games"));
         shell.addCommand(new ShowCmdsCommand("show-cmds"));
+        shell.addCommand(new StopServerCommand("stop-server"));
         shell.addCommand(new ExitCommand("exit"));
 
         return shell;
