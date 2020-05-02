@@ -1,8 +1,9 @@
+
 # Gomoku :black_circle::white_circle:
 
 :white_check_mark: Compulsory - all bullets
 
-:white_check_mark: Optional - 3/4 bullets
+:white_check_mark: Optional - all bullets
 
 :x: Bonus - 0/2 bullets
 
@@ -20,3 +21,5 @@ Game representation:
  -   Template: **templates\template.html**
  -   Result: **report.html**
  -   Method: **ServerApplication\src\main\java\game\Game\generateHTMLRepresentation**
+
+File upload: **ServerApplication\src\main\java\FileTransferManager**
