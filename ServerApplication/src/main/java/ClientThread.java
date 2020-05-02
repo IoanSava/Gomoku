@@ -113,7 +113,7 @@ public class ClientThread extends Thread {
                     if (!response.contains("Invalid")) {
                         if (response.contains("won")) {
                             playing = false;
-                            player.getGame().generateHTMLRepresentation();
+                            uploadGameRepresentation();
                         }
                         validMove = true;
                     }
@@ -191,5 +191,16 @@ public class ClientThread extends Thread {
             }
         }
         return move;
+    }
+
+    /**
+     * Once a game is finished, an HTML or SGF
+     * representation of the game should be
+     * uploaded to a Web server.
+     */
+    private void uploadGameRepresentation() {
+        String file = player.getGame().generateHTMLRepresentation();
+        FileTransferManager fileTransferManager = new FileTransferManager();
+        fileTransferManager.uploadFile(file);
     }
 }

@@ -136,7 +136,7 @@ public class Game {
     /**
      * Generate a HTML report using FreeMarker
      */
-    public synchronized void generateHTMLRepresentation() {
+    public synchronized String generateHTMLRepresentation() {
         Map<String, List> root = new HashMap<>();
         root.put("gameRepresentation", moves);
         Configuration configuration = FreeMarkerConfiguration.getInstance().getConfiguration();
@@ -148,5 +148,6 @@ public class Game {
         } catch (IOException | TemplateException e) {
             e.printStackTrace();
         }
+        return REPORT_FILE;
     }
 }
